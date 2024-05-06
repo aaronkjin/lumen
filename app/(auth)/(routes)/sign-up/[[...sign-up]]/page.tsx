@@ -1,4 +1,4 @@
-import { SignUp } from "@/node_modules/@clerk/nextjs/dist/types/index";
+import { SignUp } from "@clerk/nextjs";
 
 export default function Page() {
   return <SignUp />;
