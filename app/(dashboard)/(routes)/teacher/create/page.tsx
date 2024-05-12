@@ -1,7 +1,11 @@
 "use client";
 
+
+
 const CreatePage = () => {
-  return <div>Create page</div>;
+  return (
+
+  )
 };
 
 export default CreatePage;
