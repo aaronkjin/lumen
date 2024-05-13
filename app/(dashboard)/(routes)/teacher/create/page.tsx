@@ -5,6 +5,7 @@ import axios from "axios";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
+import Link from "next/link";
 
 import {
   Form,
@@ -40,11 +41,16 @@ const CreatePage = () => {
   return (
     <div className="max-w-5xl mx-auto flex md:items-center md:justify-center h-full p-6">
       <div>
-        <h1 className="text-2xl">Name your course</h1>
+        {/* Title */}
+        <h1 className="text-2xl">Course</h1>
+
+        {/* Title Description */}
         <p className="text-small text-slate-600">
-          What would you like to name your course? Don&apos;t worry, you can
-          change this later.
+          What will you name your course? Don&apos;t worry, you can change this
+          later.
         </p>
+
+        {/* Title Form */}
         <Form {...form}>
           <form
             onSubmit={form.handleSubmit(onSubmit)}
@@ -60,11 +66,26 @@ const CreatePage = () => {
                     <Input
                       disabled={isSubmitting}
                       placeholder="e.g. Introduction to JavaScript"
+                      {...field}
                     />
                   </FormControl>
+                  <FormDescription>
+                    What will you teach in this course?
+                  </FormDescription>
+                  <FormMessage />
                 </FormItem>
               )}
             />
+            <div className="flex items-center gap-x-2">
+              <Link href="/">
+                <Button type="button" variant="ghost">
+                  Cancel
+                </Button>
+              </Link>
+              <Button type="submit" disabled={!isValid || isSubmitting}>
+                Continue
+              </Button>
+            </div>
           </form>
         </Form>
       </div>
